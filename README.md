@@ -1,66 +1,92 @@
-## Foundry
+# Foundry NFT (Third Project Learning)
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This is a section of the Cyfrin Foundry Solidity Course.
 
-Foundry consists of:
+*[⭐️ (7:40:56) | Lesson 11: Foundry NFT](https://www.youtube.com/watch?v=sas02qSFZ74&t=27656s)*
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+We go through creating 2 different kinds of NFTs.
 
-## Documentation
+1. An IPFS Hosted NFT 
+2. An SVG NFT (Hosted 100% on-chain) 
 
-https://book.getfoundry.sh/
 
-## Usage
+- [Foundry NFT (Third Project Learning)](#foundry-nft-third-project-learning)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Quickstart](#quickstart)
+- [Usage](#usage)
+  - [Start a local node](#start-a-local-node)
+  - [Deploy](#deploy)
+  - [Deploy - Other Network](#deploy---other-network)
+  - [Testing](#testing)
+    - [Test Coverage](#test-coverage)
+- [Thank you!](#thank-you)
 
-### Build
+# Getting Started
 
-```shell
-$ forge build
+## Requirements
+
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
+- [foundry](https://getfoundry.sh/)
+  - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.2.0 (816e00b 2023-03-16T00:05:26.396218Z)`
+
+
+## Quickstart
+
+```
+git clone https://github.com/Cyfrin/foundry-nft-cu
+cd foundry-nft-cu
+forge install
+forge build
 ```
 
-### Test
 
-```shell
-$ forge test
+# Usage
+
+## Start a local node
+
+```
+make anvil
 ```
 
-### Format
+## Deploy
 
-```shell
-$ forge fmt
+This will default to your local node. You need to have it running in another terminal in order for it to deploy.
+
+```
+make deploy
 ```
 
-### Gas Snapshots
+## Deploy - Other Network
 
-```shell
-$ forge snapshot
+[See below](#deployment-to-a-testnet-or-mainnet)
+
+## Testing
+
+We talk about 4 test tiers in the video. 
+
+1. Unit
+2. Integration
+3. Forked
+4. Staging
+
+This repo we cover #1 and #3. 
+
+```
+forge test
 ```
 
-### Anvil
+or 
 
-```shell
-$ anvil
+```
+forge test --fork-url $SEPOLIA_RPC_URL
 ```
 
-### Deploy
+### Test Coverage
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+forge coverage
 ```
 
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+# Thank you!
